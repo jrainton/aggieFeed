@@ -15,11 +15,12 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngMaterial',
     'ngTouch'
   ])
   .component('phoneList', {
     templateUrl: 'views/phoneList.html',
-    controller: 'PhoneListController'
+    controller: 'PhoneListController',
   })
   .config(function ($routeProvider) {
     $routeProvider
