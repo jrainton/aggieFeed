@@ -4,15 +4,15 @@
 
     <p>
       Sort by:
-      <select ng-init="$ctrl.orderProp = '-dt'" ng-model="$ctrl.orderProp">
-        <option value="-dt">Newest</option>
-        <option value="dt">Oldest</option>
+      <select ng-init="$ctrl.orderProp = '-activity.actor.id'" ng-model="$ctrl.orderProp">
+        <option value="-activity.actor.id">Newest</option>
+        <option value="activity.actor.id">Oldest</option>
       </select>
     </p>
 
     <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
-        <span>Weather in {{ weather.city.name }}</span>
+        <span>Weather in {{ weather.list[0].activity.object.contentImage.location.displayName }}</span>
       </div>
     </md-toolbar>
 
@@ -20,23 +20,23 @@
       <md-list flex="">
         <md-list-item class="md-2-line" ng-repeat="weatherReport in weather.list | orderBy:$ctrl.orderProp" ng-click="showDetails = ! showDetails">
           <div class="md-list-item-text layout-padding" layout="column">
-            <h3>{{ weatherReport.dt_txt }}</h3>
+            <h3>{{ weatherReport.activity.title }}</h3>
             <div class="row mainDetail" style="pointer-events:none;">
               <div class="col-md-7">
-                <p>Temp: {{ (weatherReport.main.temp - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Temp: {{ (weatherReport.activity.temp - 273.15) * 9/5 + 32 | number:2 }} F</p>
               </div>
               <div class="col-md-2">
-                <p>Min: {{ (weatherReport.main.temp_min - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Min: {{ (weatherReport.activity.temp_min - 273.15) * 9/5 + 32 | number:2 }} F</p>
               </div>
               <div class="col-md-2">
-                <p>Max: {{ (weatherReport.main.temp_max - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Max: {{ (weatherReport.activity.temp_max - 273.15) * 9/5 + 32 | number:2 }} F</p>
               </div>
             </div>
             <div class="extraDetail padding" style="pointer-events:none; padding-top: 20px; padding-bottom: 10px;" ng-show="showDetails">
-                <p>Pressure: {{ weatherReport.main.pressure | number:2 }}</p>
-                <p>Humidity: {{ weatherReport.main.humidity | number:2 }}</p>
-                <p>{{ weatherReport.weather[0].main }} - {{ weatherReport.weather[0].description }}</p>
-                <p>Wind Speed: {{ weatherReport.wind.speed | number:2 }}</p>
+                <p>Pressure: {{ weatherReport.activity.pressure | number:2 }}</p>
+                <p>Humidity: {{ weatherReport.activity.humidity | number:2 }}</p>
+                <p>{{ weatherReport.activity.weather }} - {{ weatherReport.activity.weather_desc }}</p>
+                <p>Wind Speed: {{ weatherReport.activity.wind_speed | number:2 }}</p>
             </div>
           </div>
           <md-divider></md-divider>
