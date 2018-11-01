@@ -1,6 +1,8 @@
 'use strict';
 
+//function to convert json format of openWeatherAPI to aggieFeed json structure
 function format(weatherReport, mainFormat) {
+  //changing date from UTC to PST
   let dateString = new Date(weatherReport.dt_txt);
   dateString.setHours(dateString.getHours() - 7);
   let dateTime = dateString.toTimeString().split(' ')[0];
