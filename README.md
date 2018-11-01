@@ -1,12 +1,12 @@
 # aggie-feed
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
+Functionality:
 
-## Build & development
+* The data can be retrieved by refreshing the page.
+* Clicking the F button will switch it to Celsius and the C button to Fahrenheit
+* Clicking the dropdown will order the weather based on new and old "posts"
+* Clicking on a specific box will open it up and show more detail for 
+that time and date
 
-Run `grunt` for building and `grunt serve` for preview.
+Retrieved data from openWeatherMaps API and used Angular Material for the layouts.
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
