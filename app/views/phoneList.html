@@ -2,13 +2,13 @@
 
   <div flex-gt-sm="100" flex="">
 
-    <p>
-      Sort by:
-      <select ng-init="$ctrl.orderProp = '-activity.actor.id'" ng-model="$ctrl.orderProp">
-        <option value="-activity.actor.id">Newest</option>
-        <option value="activity.actor.id">Oldest</option>
-      </select>
-    </p>
+    <div layout="row">
+        <md-select ng-init="$ctrl.orderProp = '-activity.actor.id'" ng-model="$ctrl.orderProp">
+          <md-option value="-activity.actor.id">Newest</md-option>
+          <md-option value="activity.actor.id">Oldest</md-option>
+        </md-select>
+      <md-button class="md-caption right-side" ng-click="changeTemp()">{{ weather.list[0].activity.tempUnit }}</md-button>
+    </div>
 
     <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
@@ -23,13 +23,13 @@
             <h3>{{ weatherReport.activity.title }}</h3>
             <div class="row mainDetail" style="pointer-events:none;">
               <div class="col-md-7">
-                <p>Temp: {{ (weatherReport.activity.temp - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Temp: {{ weatherReport.activity.tempConversion | number:2 }} {{ weatherReport.activity.tempUnit }}</p>
               </div>
               <div class="col-md-2">
-                <p>Min: {{ (weatherReport.activity.temp_min - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Min: {{ weatherReport.activity.tempConversionMin | number:2 }} {{ weatherReport.activity.tempUnit }}</p>
               </div>
               <div class="col-md-2">
-                <p>Max: {{ (weatherReport.activity.temp_max - 273.15) * 9/5 + 32 | number:2 }} F</p>
+                <p>Max: {{ weatherReport.activity.tempConversionMax | number:2 }} {{ weatherReport.activity.tempUnit }}</p>
               </div>
             </div>
             <div class="extraDetail padding" style="pointer-events:none; padding-top: 20px; padding-bottom: 10px;" ng-show="showDetails">

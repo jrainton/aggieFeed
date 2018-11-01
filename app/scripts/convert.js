@@ -1,7 +1,6 @@
 'use strict';
 
 function format(weatherReport, mainFormat) {
-  console.log(weatherReport);
   let dateString = new Date(weatherReport.dt_txt);
   dateString.setHours(dateString.getHours() - 7);
   let dateTime = dateString.toTimeString().split(' ')[0];
@@ -16,6 +15,7 @@ function format(weatherReport, mainFormat) {
         'weather': weatherReport.weather[0].main,
         'weather_desc': weatherReport.weather[0].description,
         'wind_speed': weatherReport.wind.speed,
+        'tempConversion': weatherReport.main.tempConversion,
         'icon': 'icon-tint',
         'actor': {
           'id': weatherReport.dt || 'department identifier',
