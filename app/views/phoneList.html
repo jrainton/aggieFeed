@@ -1,14 +1,15 @@
 <div ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
 
   <div flex-gt-sm="100" flex="">
-
-    <div layout="row">
+    <section layout="row" layout-align="end center" layout-wrap>
+      <div layout="row" layout-align="start center" flex>
         <md-select ng-init="$ctrl.orderProp = '-activity.actor.id'" ng-model="$ctrl.orderProp">
           <md-option value="-activity.actor.id">Newest</md-option>
           <md-option value="activity.actor.id">Oldest</md-option>
         </md-select>
-      <md-button class="md-caption right-side" ng-click="changeTemp()">{{ weather.list[0].activity.tempUnit }}</md-button>
-    </div>
+      </div>
+      <md-button class="md-caption" ng-click="changeTemp()">{{ weather.list[0].activity.tempUnit }}</md-button>
+    </section>
 
     <md-toolbar layout="row" class="md-hue-3">
       <div class="md-toolbar-tools">
